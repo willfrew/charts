@@ -1,0 +1,7 @@
+prometheus:
+  serviceMonitor:
+    enabled: true
+    interval: 5s
+
+rbac:
+  create: true

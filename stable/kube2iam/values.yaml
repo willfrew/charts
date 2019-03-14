@@ -15,7 +15,7 @@ host:
   port: 8181
 
 prometheus:
-  # Port to expose the /metrics endpoint on. If unset, defaults to `host.ip`
+  # Port to expose the /metrics endpoint on. If unset, defaults to `host.port`
   # metricsPort: 8181
 
   serviceMonitor:
