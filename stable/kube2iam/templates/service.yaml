@@ -14,13 +14,14 @@ spec:
     app: {{ template "kube2iam.name" . }}
     release: {{ .Release.Name }}
   ports:
+    {{- if .Values.prometheus.metricsPort }}
     - name: metrics
-      {{- if .Values.prometheus.metricsPort }}
       port: {{ .Values.prometheus.metricsPort }}
       targetPort: {{ .Values.prometheus.metricsPort }}
-      {{- else }}
+    {{- else }}
+    - name: http
       port: {{ .Values.host.port }}
       targetPort: {{ .Values.host.port }}
-      {{- end }}
+    {{- end }}
       protocol: TCP
 {{ end }}

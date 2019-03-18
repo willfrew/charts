@@ -16,6 +16,9 @@ spec:
     matchLabels:
       app: {{ template "kube2iam.name" . }}
       release: {{ .Release.Name }}
+  namespaceSelector:
+    matchNames:
+      - {{ .Release.Namespace }}
   endpoints:
     {{- if .Values.prometheus.metricsPort }}
     - port: metrics
@@ -24,6 +27,4 @@ spec:
     {{- end }}
       interval: {{ .Values.prometheus.serviceMonitor.interval }}
       path: /metrics
-  namespaceSelector:
-    any: true
 {{- end -}}

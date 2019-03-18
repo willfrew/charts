@@ -1,4 +1,6 @@
 prometheus:
+  metricsPort: 9595
+
   serviceMonitor:
     enabled: true
     interval: 5s
